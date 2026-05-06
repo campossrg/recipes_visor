@@ -26,12 +26,12 @@ export default async function BookPage({ params }: PageProps) {
     <main
       style={{
         minHeight: "100vh",
-        padding: "32px 20px 64px",
+        padding: "32px 0 64px",
       }}
     >
       <div
         style={{
-          width: "min(960px, 100%)",
+          width: "100%",
           margin: "0 auto",
           display: "grid",
           gap: "20px",
@@ -39,6 +39,8 @@ export default async function BookPage({ params }: PageProps) {
       >
         <div
           style={{
+            width: "min(960px, calc(100% - 40px))",
+            margin: "0 auto",
             display: "grid",
             gap: "10px",
             padding: "24px",
@@ -61,13 +63,22 @@ export default async function BookPage({ params }: PageProps) {
               key={image.id}
               style={{
                 overflow: "hidden",
-                borderRadius: "24px",
+                width: "100%",
                 background: "var(--card)",
-                border: "1px solid var(--border)",
+                borderTop: "1px solid var(--border)",
+                borderBottom: "1px solid var(--border)",
                 boxShadow: "var(--shadow)",
               }}
             >
-              <div style={{ padding: "14px 18px", color: "var(--muted)", borderBottom: "1px solid var(--border)" }}>
+              <div
+                style={{
+                  width: "min(960px, calc(100% - 40px))",
+                  margin: "0 auto",
+                  padding: "14px 0",
+                  color: "var(--muted)",
+                  borderBottom: "1px solid var(--border)",
+                }}
+              >
                 Page {index + 1}
               </div>
               <Image
@@ -75,7 +86,7 @@ export default async function BookPage({ params }: PageProps) {
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
-                sizes="(max-width: 960px) 100vw, 960px"
+                sizes="100vw"
                 style={{ width: "100%", height: "auto" }}
                 priority={index === 0}
               />
